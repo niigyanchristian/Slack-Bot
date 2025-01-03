@@ -50,6 +50,10 @@ app.view('view_2', updateSubmissionView);
     }
 })();
 
+server.get('/', (req, res) => {
+    res.send("Welcome")
+})
+
 server.listen(port, () => {
     console.log('====================================');
     console.log("Listening");
