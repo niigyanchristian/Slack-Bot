@@ -12,6 +12,8 @@ import { viewSummaryCommand, openNewFormCommand, openUpdateFormCommand } from '.
 
 MongoDB();
 
+const port = process.env.PORT || 3000;
+
 // Schedule the daily reminder to run every day at 9AM
 cron.schedule('0 9 * * *', dailyReminder);
 
@@ -39,8 +41,8 @@ app.view('view_2', updateSubmissionView);
 
 (async () => {
     try {
-        await app.start(process.env.PORT || 3000);
-        console.log('⚡️ Bolt app is running!');
+        await app.start(port);
+        console.log(`⚡️ Bolt app is running on port ${port}!`);
     } catch (error) {
         console.error('❌ Failed to start Bolt app:', error);
     }
