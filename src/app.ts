@@ -3,6 +3,7 @@ dotenv.config();
 
 import cron from 'node-cron';
 import MongoDB from './config/database';
+import express from 'express';
 import { app } from './config/config';
 import { dailyUpdate, dailyReminder } from './tasks';
 import { newSubmissionView, updateSubmissionView } from './views';
@@ -12,6 +13,7 @@ import { viewSummaryCommand, openNewFormCommand, openUpdateFormCommand } from '.
 
 MongoDB();
 
+const server = express();
 const port = process.env.PORT || 3000;
 
 // Schedule the daily reminder to run every day at 9AM
@@ -47,3 +49,9 @@ app.view('view_2', updateSubmissionView);
         console.error('❌ Failed to start Bolt app:', error);
     }
 })();
+
+server.listen(port, () => {
+    console.log('====================================');
+    console.log("Listening");
+    console.log('====================================');
+})
