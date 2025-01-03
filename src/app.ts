@@ -19,8 +19,8 @@ const port = process.env.PORT || 3000;
 // Schedule the daily reminder to run every day at 9AM
 cron.schedule('0 9 * * *', dailyReminder);
 
-// Schedule the task to run every day at 12 AM
-cron.schedule('0 0 * * *', dailyUpdate);
+// Schedule the task to run every day at 12 PM
+cron.schedule('0 12 * * *', dailyUpdate);
 
 app.command('/view_summary', viewSummaryCommand);
 

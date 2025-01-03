@@ -13,13 +13,13 @@ export const dailyReminder = async () => {
             if (user.id) {
                 await app.client.chat.postMessage({
                     channel: user.id,
-                    text: `🚀 Good morning ${user.name}! This is your daily standup reminder. Please submit your update. 😊`,
+                    text: ` `,
                     blocks: [
                         {
                             type: 'section',
                             text: {
                                 type: 'mrkdwn',
-                                text: 'Click the button below to submit your daily update.',
+                                text: `🚀Good morning ${user.name}! This is your daily standup reminder. Please submit your update. 😊 Click the button below to submit your daily update.`,
                             },
                             accessory: {
                                 type: 'button',
